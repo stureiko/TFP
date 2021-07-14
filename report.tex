@@ -1,0 +1,205 @@
+\documentclass[a4paper, 14pt]{extreport}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{lscape}
+% поля:
+\usepackage[left=2.5cm, right=1.5cm, vmargin=2.5cm]{geometry}
+\usepackage{indentfirst} % отделять первую строку раздела абзацным отступом
+\setlength\parindent{5ex}
+
+% настройка разделов
+\usepackage{titlesec}
+
+\titleformat{\chapter}[block]
+{\filcenter}
+{\thechapter}
+{1em}
+{\MakeUppercase}{}
+
+\titleformat{\section}
+{}
+{\thesection}
+{1ex}{}
+
+\titleformat{\subsection}
+{}
+{\thesubsection}
+{1ex}{}
+
+\setcounter{secnumdepth}{4}
+\titleformat{\subsubsection}[runin]
+{}
+{\thesubsubsection}
+{1ex}{}[.]
+
+% настройка Содержания
+\addto{\captionsrussian}{\renewcommand*{\contentsname}{Содержание}}
+\usepackage{titletoc}
+\dottedcontents{chapter}[1.6em]{}{1.6em}{1pc}
+\usepackage[hidelinks]{hyperref} % гиперссылки в содержании
+
+% Обработка таблиц
+\usepackage{tabularx}
+\usepackage{datatool}
+
+\usepackage{lastpage} % ссылка на последнюю страницу документа
+
+\usepackage{caption} % подписи к рисункам в русской типографской традиции
+\DeclareCaptionFormat{GOSTtable}{#2#1\\#3}
+\DeclareCaptionLabelSeparator{fill}{\hfill}
+\DeclareCaptionLabelFormat{fullparents}{\bothIfFirst{#1}{~}#2}
+\captionsetup[table]{
+	format=GOSTtable,
+	font={footnotesize},
+	labelformat=fullparents,
+	labelsep=fill,
+	textfont=bf,
+	justification=centering,
+	singlelinecheck=false
+}
+
+\begin{document}
+\selectlanguage{russian} % основной язык документа
+\begin{titlepage}                                                         
+	\newpage                                                                        
+	\begin{center}                                                        
+		Публичное акционерное общество  <<Газпром>>\\
+			Общество с ограниченной ответственностью\\
+			<<Научно-исследовательский институт экономики и организации управления в газовой промышленности>>\\
+			(ООО <<НИИгазэкономика>>)                             
+                                                            
+		\vspace{3em}                                                          
+                                                     
+		\begin{tabular}{p{0.6\textwidth}@{}l l}
+			УДК & \\
+			№ госрегистрации & \\
+			СОГЛАСОВАНО & УТВЕРЖДАЮ \\
+			Начальник Департамента & Генеральный директор \\
+			ПАО <<Газпром>> & ООО <<НИИгазэкономика>> \\
+			 & канд. тех. наук \\
+			  & \\
+			\makebox[3cm]{\hrulefill} В.А. Михаленко & \makebox[3cm]{\hrulefill} Н.А. Кисленко \\
+			<<\makebox[1cm]{\hrulefill}>> \makebox[2cm]{\hrulefill} 2020 г. & <<\makebox[1cm]{\hrulefill}>> \makebox[2cm]{\hrulefill} 2020 г. \\
+		\end{tabular}                                                    
+	\end{center}                                                          
+	
+	\vspace{1.2em}                                                        
+	
+	\begin{center}                                                        
+		%\textsc{\textbf{}}                                     
+		\Large ОТЧЕТ \linebreak                                  
+		об оказании услуг
+	\end{center}                                                          
+	
+	\vspace{1em}        
+		\begin{tabularx}{0.95\textwidth}{|>{\hsize=.55\hsize\linewidth=\hsize}X|
+				>{\hsize=1.45\hsize\linewidth=\hsize}X|}
+			\hline
+		№, дата договора & № 1357/18 от 26.06.2018 г.\\
+		\hline
+		Наименование\newline договора & Прогноз технически возможной производительности участков газотранспортной системы на 10 лет.\\
+		\hline
+		№, наименование\newline этапа & Этап 2. Прогноз технически возможной производительности участков газотранспортной системы на 10 лет.
+\newline
+		Книга 1. Общая пояснительная записка.
+\\
+		\hline
+		Наименование\newline результата & Прогноз технически возможной производительности участков газотранспортной системы на 10 лет.\\
+		\hline
+	\end{tabularx}                                                  
+	                                                        
+	\vspace{2em}                                                                    
+
+
+	\begin{tabularx}{0.9\textwidth}{>{\hsize=.5\hsize\linewidth=\hsize}X
+			>{\hsize=2.5\hsize\linewidth=\hsize}r}
+			\noindent\parbox[b]{\hsize}{Руководитель работы\newline заместитель директора центра,\newline канд. физ.-мат. наук} & \makebox[3cm]{\hrulefill} И.О. Стурейко\\
+	\end{tabularx}       
+                                  
+
+	\vspace{\fill}                                                    
+	
+	\begin{center}                                                        
+		Москва, 2020                                                                
+	\end{center}                                                          
+	
+\end{titlepage}
+
+\setcounter{page}{2} % начать нумерацию с номера два
+
+\chapter*{список исполнителей}
+	\begin{tabularx}{0.9\textwidth}{>{\hsize=.5\hsize\linewidth=\hsize}X
+		>{\hsize=2.5\hsize\linewidth=\hsize}l}
+	\noindent\parbox[b]{\hsize}{Руководитель работы\newline заместитель директора центра,\newline канд. физ.-мат. наук} & \makebox[3cm]{\hrulefill} И.О. Стурейко\\
+	 & \\
+	 & \\
+	\noindent\parbox[b]{\hsize}{Заместитель заведующего отделом} & \makebox[3cm]{\hrulefill} Р.Я. Грыб\\
+\end{tabularx} 
+
+\chapter*{Реферат}
+Отчет содержит \pageref{LastPage} страниц.
+
+\begin{Large}
+	твп, производительность, пропускная способность
+\end{Large}
+
+Целью работы является проведение расчетов и формирование прогноза технически возможной производительности существующих участков газотранспортной системы на десятилетний период, в том числе с учётом планируемых работ по капитальному ремонту и реконструкции.
+
+Результатом работы является прогноз технически возможной производительности участком СМГ ГТС ПАО <<Газпром>>
+
+%\tableofcontents
+
+\chapter{Исходные данные}
+%\input{initial_data.tex}
+\chapter{Прогноз ТВП на 10-и летний период}
+%\input{retro.tex}
+%\input{prognoz.tex}
+\chapter{Ранжирование участков ГТС с учётом планируемой загрузки}
+%\input{range.tex}
+\chapter{Прогноз СЦП 2-го уровня, связанных с показателем ТВП}
+%\input{scp.tex}
+
+
+%Текст. Как показано в ~табл. \ref{table_1} на странице \pageref{table_1} 
+
+
+%	\begin{landscape}
+%		\DTLsetseparator{|}      % разделитель ячеек
+%		\DTLloaddb[noheader, keys={id,name,2012,2013,2014,2015,2016,2017,2018}, headers={id,Наименование,2012,2013,2014,2015,2016,2017,2018}]{satellites}{TVP.csv}
+%		
+%		\begin{table}
+%			\caption{Ретроспектива ТВП}
+%			\label{table_1}
+%			\centering
+%			\DTLdisplaydb{satellites}
+%		\end{table}
+	
+%	\end{landscape}
+
+	
+%	Как изложено в таблице \ref{table_1}
+	
+	Дальнейший текст
+
+\chapter{Приложения}
+\appendix
+\titleformat{\section}[display]
+{\normalfont\Large\bfseries}
+{\centering Приложение\ \thesection\\}
+{0pt}{\Large\centering}
+\renewcommand{\thesection}{\Asbuk{section}}
+%\input{tvps2019}
+
+%\renewcommand\appendixname{Приложение}
+%\makeatletter
+%\def\redeflsection{\def\l@section{\@dottedtocline{1}{1.5em}{7.8em}}}
+%\renewcommand\appendix{\par
+%	\setcounter{section}{0}%
+%	\setcounter{subsection}{0}%
+%	\def\@chapapp{\appendixname}%
+%	\addtocontents{toc}{\protect\redeflsection}
+%	\def\thesection{\appendixname\hspace{0.2cm}\@arabic\c@section}}
+%\makeatother
+%\input{tvps2019}
+\end{document}
